@@ -21,10 +21,6 @@ class rate_limited_data_plane : public data_plane {
     std::unordered_map<uint32_t, std::unique_ptr<token_bucket>> uplink_limiters;
     std::unordered_map<boost::asio::ip::address_v4, std::unique_ptr<token_bucket>> downlink_limiters;
 
-protected:
-    void forward_packet_to_sgw(boost::asio::ip::address_v4 sgw_addr, uint32_t sgw_dp_teid, Packet &&packet) override {}
-    void forward_packet_to_apn(boost::asio::ip::address_v4 apn_gateway, Packet &&packet) override {}
-
 public:
     explicit rate_limited_data_plane(control_plane& cp);
 

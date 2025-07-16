@@ -21,7 +21,7 @@ bool token_bucket::spend_tokens(double tokens_) {
     last_update = now;
 
     // Проверяем, достаточно ли токенов
-    if (tokens > tokens_) {
+    if (tokens >= tokens_) {
         tokens -= tokens_;
         return true;
     }
